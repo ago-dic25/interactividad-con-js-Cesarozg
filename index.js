@@ -30,12 +30,21 @@ suma(100, 200);
 
 //===Elementos de la pagina como variables===///
 var botonBuscar = document.getElementById("buscar");
-
 console.log(botonBuscar);
-
 //==== Eventos===== //
 botonBuscar.addEventListener("click", function(){
     //alert("Hiciste clic al boton");
     botonBuscar.classList.add("rojo");
 });
 
+var botonSwitch = document.getElementById("modo_oscuro_claro");
+console.log(botonSwitch);
+botonSwitch.addEventListener("click", function(){
+    document.body.classList.toggle("modo-oscuro");
+});
+
+var botonMas = document.getElementById("+");
+console.log(botonMas);
+botonMas.addEventListener("click", function(){
+    
+})
