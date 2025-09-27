@@ -43,8 +43,33 @@ botonSwitch.addEventListener("click", function(){
     document.body.classList.toggle("modo-oscuro");
 });
 
+var contador = 0;
 var botonMas = document.getElementById("+");
+var mostrarContador = document.getElementById("contador");
 console.log(botonMas);
 botonMas.addEventListener("click", function(){
-    
+    contador++;
+    mostrarContador.textContent = contador;
+})
+
+var botonBuscar = document.getElementById("buscar");
+console.log(botonBuscar);
+botonBuscar.addEventListener("click", function(){
+    const textoBusqueda = prompt("Escribe tu busqueda");
+
+    if (!textoBusqueda) return;
+
+    const termino = textoBusqueda.toLowerCase();
+
+    const tarjetas = document.querySelectorAll(".tarjeta");
+
+    tarjetas.forEach(tarjeta => {
+        const contenido = tarjeta.textContent.toLowerCase();
+
+        if (contenido.includes(termino)) {
+            tarjeta.classList.remove("ocultar");
+        } else {
+            tarjeta.classList.add("ocultar");
+        }
+    });
 })
