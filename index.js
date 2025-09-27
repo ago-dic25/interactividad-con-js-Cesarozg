@@ -47,6 +47,7 @@ var contador = 0;
 var botonMas = document.getElementById("+");
 var mostrarContador = document.getElementById("contador");
 console.log(botonMas);
+console.log(mostrarContador);
 botonMas.addEventListener("click", function(){
     contador++;
     mostrarContador.textContent = contador;
@@ -55,16 +56,15 @@ botonMas.addEventListener("click", function(){
 var botonBuscar = document.getElementById("buscar");
 console.log(botonBuscar);
 botonBuscar.addEventListener("click", function(){
-    const textoBusqueda = prompt("Escribe tu busqueda");
-
-    if (!textoBusqueda) return;
-
-    const termino = textoBusqueda.toLowerCase();
-
-    const tarjetas = document.querySelectorAll(".tarjeta");
+    var textoBusqueda = prompt("Escribe tu busqueda");
+    if (!textoBusqueda) {
+        return; 
+    }
+    var termino = textoBusqueda.toLowerCase();
+    var tarjetas = document.querySelectorAll(".tarjeta");
 
     tarjetas.forEach(tarjeta => {
-        const contenido = tarjeta.textContent.toLowerCase();
+        var contenido = tarjeta.textContent.toLowerCase();
 
         if (contenido.includes(termino)) {
             tarjeta.classList.remove("ocultar");
@@ -72,4 +72,22 @@ botonBuscar.addEventListener("click", function(){
             tarjeta.classList.add("ocultar");
         }
     });
-})
+});
+
+var botonSeeAll = document.getElementById("seeAll");
+console.log(botonSeeAll);
+var imagenSeeAll = botonSeeAll.querySelector("img");
+var imagenes = ["imagenes/soundtrap-n30_i7mx62o-unsplash.jpg", "imagenes/rachel-coyne-mTsotT-gMrY-unsplash.jpg", "imagenes/jukka-aalho-OaPksPcVp50-unsplash.jpg"];
+var indiceImagen = 0;
+var intervalo = null;
+
+botonSeeAll.addEventListener("mouseenter", function(){
+    intervalo = setInterval(function(){
+        indiceImagen = (indiceImagen + 1) % imagenes.length;
+        imagenSeeAll.src = imagenes[indiceImagen];
+    }, 3000);
+});
+
+botonSeeAll.addEventListener("mouseout", function(){
+    clearInterval(intervalo);
+});
