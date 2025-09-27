@@ -10,6 +10,10 @@ ul {
 nav{
      background-color: white;  
      border-radius:20px;
+     display: flex;
+     justify-content: center;
+     gap: 90px;
+     flex-wrap: wrap;
 }
 
 a{
@@ -28,7 +32,7 @@ a{
 button {
      border: none;
      background-color: transparent;
-     padding: 20px;
+     cursor: pointer;
 }
 
 #ads,#seeAll, #bestOfTheWeek, #travel{
@@ -117,6 +121,20 @@ section img, aside img {
 #ads * {
      display: block;
 }
+
+.modo-oscuro {
+    background-color: black;
+    color: white;
+}
+
+.modo-oscuro nav {
+    background-color: gray;
+}
+
+.modo-oscuro a {
+    color: lightgray;
+}
+
 /*Breakpoints*/
 @media screen and (min-width: 769px){
      main {
@@ -126,7 +144,9 @@ section img, aside img {
      }
      nav ul{
           display: flex;
-          justify-content: space-around;
+          justify-content:center;
+          gap: 60px;
+
      }
      
      section {
